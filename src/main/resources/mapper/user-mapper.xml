@@ -34,11 +34,11 @@
     <select id="selectPasswordByName" resultType="String">
         select password
         from user
-        where username = #{name}
+        where username = #{username}
     </select>
 
     <insert id="insertUser" parameterType="User" keyProperty="id">
-        insert into (<include refid="insertFields"/>)
+        insert into user (<include refid="insertFields"/>)
         values(#{username},#{password},#{salt},#{email},#{type},#{status},#{activationCode},#{headerUrl},#{createTime})
     </insert>
 

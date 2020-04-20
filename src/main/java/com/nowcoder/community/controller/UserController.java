@@ -2,7 +2,6 @@ package com.nowcoder.community.controller;
 
 import com.nowcoder.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -27,6 +26,8 @@ public class UserController {
         if (state) {
             map.put("success", "true");
             map.put("statusCode","200");
+            map.put("username", name);
+            map.put("password",password);
             return map;
         } else {
             map.put("success", "false");
