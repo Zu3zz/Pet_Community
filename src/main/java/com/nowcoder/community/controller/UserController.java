@@ -1,5 +1,6 @@
 package com.nowcoder.community.controller;
 
+import com.nowcoder.community.annotation.LoginRequired;
 import com.nowcoder.community.entity.User;
 import com.nowcoder.community.service.UserService;
 import com.nowcoder.community.util.CommunityUtil;
@@ -45,11 +46,13 @@ public class UserController {
     @Autowired
     private HostHolder hostHolder;
 
+    @LoginRequired
     @GetMapping(path = "/setting")
     public String getSettingPage() {
         return "/site/setting";
     }
 
+    @LoginRequired
     @PostMapping(path = "/upload")
     public String uploadHeader(MultipartFile headerImage, Model model) {
         if (headerImage == null) {
@@ -103,6 +106,7 @@ public class UserController {
             logger.error("读取头像失败" + e.getMessage());
         }
     }
+    @LoginRequired
     @PostMapping(path = "/changePassword")
     public String changePassword(String oldPassword, String newPassword, Model model){
         // 检查原密码是否为空
