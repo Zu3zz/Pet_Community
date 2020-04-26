@@ -48,3 +48,4 @@ logging:
 community:
   path:
     domain: http://localhost:8080
+    upload: /Users/3zz/Code/SpringBoot/community/src/main/resources/static/upload
